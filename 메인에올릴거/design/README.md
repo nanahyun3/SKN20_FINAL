@@ -36,9 +36,12 @@ temp_uploads/*
 
 ## 🚀 실행 순서
 
-### ⚡ Step 1: 데이터 다운로드 (최초 1회)
-구글 드라이브에서 필요한 데이터(벡터DB & 이미지) 다운로드
-프로젝트 루트 디렉토리에 `data/`와 `chroma_db/` 폴더를 생성한 후, 아래 링크에서 데이터를 다운로드하여 해당 폴더에 배치
+### ⚡ Step 1: 챗봇 실행에 필요한 데이터 다운로드 (최초 1회)
+
+1) (위 폴더 구조 참고) design 폴더 아래  `data/`와 `chroma_db/` 폴더를 생성한다. 
+
+2) 아래 링크에서 데이터를 다운로드해, 각 폴더에 배치한다. 
+
 
 1. **ChromaDB 벡터 데이터베이스** 다운로드
 - https://drive.google.com/drive/folders/1UVap5r4Vgn2M4L8JoTrbRH5jvKJE-O7-?usp=drive_link
