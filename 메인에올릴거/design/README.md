@@ -45,7 +45,7 @@ temp_uploads/*
 
 1. **ChromaDB 벡터 데이터베이스** 다운로드
 - https://drive.google.com/drive/folders/1JkeGGx2MyGmmuUczrHQ0o-HDH74MWYtt?usp=drive_link 
-위 링크에서 `chroma_db/` 폴더를 다운받아, 폴더 자체를 design 루트 디렉토리에 배치.
+- 위 링크에서 `chroma_db/` 폴더를 다운받아, 폴더 자체를 design 루트 디렉토리에 배치.
 
 
 
