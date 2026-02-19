@@ -1,7 +1,6 @@
-# Design RAG 시스템 의존성 패키지
 # Python 3.9+ 필요
 
-# === LangChain 프레임워크 (실제 사용) ===
+# === LangChain 프레임워크 ===
 langchain==1.2.1
 langchain-community==0.4.1
 langchain-core==1.2.6
@@ -10,7 +9,7 @@ langgraph==1.0.5
 langgraph-checkpoint==3.0.1
 langgraph-prebuilt==1.0.5
 
-# === AI/ML 모델 ===
+# === 모델 ===
 torch>=2.1.0
 numpy>=1.24.0
 git+https://github.com/openai/CLIP.git
