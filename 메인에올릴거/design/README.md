@@ -5,7 +5,7 @@
 ## 📁 폴더 구조
 
 ```
-design/                             # 🎨 디자인 RAG 시스템
+design/                            # 🎨 디자인 RAG 시스템
 ├── src/                           # 🧠 소스코드
 │   ├── API_명세서.md              # API 명세서
 │   ├── api.py                     # FastAPI 백엔드 서버
@@ -16,7 +16,15 @@ design/                             # 🎨 디자인 RAG 시스템
 │  
 │
 ├── data/                          # 📊 이미지 데이터 (구글 드라이브 다운로드)
+│   ├── images/                    
+│   │   ├── 3020230035272-api_xml-0_000.jpg
+│   │   ├── ...
+│   │  
 ├── chroma_db/                     # 🗄️ ChromaDB 벡터 데이터베이스 (구글 드라이브 다운로드)
+│   ├── .DS_Store                  
+│   ├── chroma.sqlite3             # ChromaDB 메인 데이터베이스
+│   └── bba2cc98-8fd6-4bc3-a496-d78a6068a8f9/
+│    
 ├── requirements.txt               
 └── README.md                      
 ```
@@ -30,6 +38,7 @@ chroma_db/
 __pycache__/
 *.pyc
 temp_uploads/*
+.DS_Store
 ```
 
 
@@ -43,16 +52,16 @@ temp_uploads/*
 
 
 
-1. **ChromaDB 벡터 데이터베이스** 다운로드
+1. **ChromaDB 벡터 데이터베이스** 다운로드(48.2MB)
 - https://drive.google.com/drive/folders/1JkeGGx2MyGmmuUczrHQ0o-HDH74MWYtt?usp=drive_link 
 - 위 링크에서 `chroma_db/` 폴더를 다운받아, 폴더 자체를 design 루트 디렉토리에 배치.
 
 
-
-2. **이미지 데이터** 다운로드 
+2. **이미지 데이터** 다운로드 (1.97 GB)
 - https://drive.google.com/drive/folders/1JkeGGx2MyGmmuUczrHQ0o-HDH74MWYtt?usp=drive_link 
 - 위 링크에서  `images/` 폴더를 다운받아, 폴더 자체를 design  `design/data/` 폴더에 배치. 
 - 챗봇에서 이미지 표시할때 사용
+
 
 ### ⚙️ Step 2: 환경 설정
 ```bash
