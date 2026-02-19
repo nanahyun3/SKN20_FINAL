@@ -38,15 +38,20 @@ temp_uploads/*
 
 ### ⚡ Step 1: 데이터 다운로드 (최초 1회)
 구글 드라이브에서 필요한 데이터(벡터DB & 이미지) 다운로드
-프로젝트 루트 디렉토리에 `data/`와 `chroma_db/` 폴더를 생성한 후, 아래 링크에서 데이터를 다운로드하여 해당 폴더에 배치
+
+꼭! 위 폴더 구조를 참고해, 다운로드한 폴더를 해당 위치에 배치해주세요.
+
+
 
 1. **ChromaDB 벡터 데이터베이스** 다운로드
-- https://drive.google.com/drive/folders/1UVap5r4Vgn2M4L8JoTrbRH5jvKJE-O7-?usp=drive_link
-- `chroma_db/` 폴더에 배치
+- https://drive.google.com/drive/folders/1JkeGGx2MyGmmuUczrHQ0o-HDH74MWYtt?usp=drive_link 
+위 링크에서 `chroma_db/` 폴더를 다운받아, 폴더 자체를 design 루트 디렉토리에 배치.
+
+
 
 2. **이미지 데이터** 다운로드 
-- https://drive.google.com/drive/folders/1unZXKdsPSFa5f71zpy50tW3kcgFhlLSq?usp=drive_link
-- `data/` 폴더에 배치
+- https://drive.google.com/drive/folders/1JkeGGx2MyGmmuUczrHQ0o-HDH74MWYtt?usp=drive_link 
+- 위 링크에서  `images/` 폴더를 다운받아, 폴더 자체를 design  `design/data/` 폴더에 배치. 
 - 챗봇에서 이미지 표시할때 사용
 
 ### ⚙️ Step 2: 환경 설정
