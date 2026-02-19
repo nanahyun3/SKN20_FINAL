@@ -48,7 +48,7 @@ temp_uploads/*
 ### ⚡ Step 1: 데이터 다운로드 (최초 1회)
 구글 드라이브에서 필요한 데이터(벡터DB & 이미지) 다운로드
 
-꼭! 위 폴더 구조를 참고해, 다운로드한 폴더를 해당 위치에 배치해주세요.
+꼭! 위 폴더 구조를 참고해, 다운로드한 폴더를 알맞은 위치에 배치해주세요.
 
 
 
@@ -59,7 +59,7 @@ temp_uploads/*
 
 2. **이미지 데이터** 다운로드 (1.97 GB)
 - https://drive.google.com/drive/folders/1JkeGGx2MyGmmuUczrHQ0o-HDH74MWYtt?usp=drive_link 
-- 위 링크에서  `images/` 폴더를 다운받아, 폴더 자체를 design  `design/data/` 폴더에 배치. 
+- 위 링크에서  `images/` 폴더를 다운받아, 폴더 자체를  `design/data/` 폴더에 배치. 
 - 챗봇에서 이미지 표시할때 사용
 
 

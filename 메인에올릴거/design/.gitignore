@@ -7,5 +7,5 @@ chroma_db/
 .env
 __pycache__/
 *.pyc
-temp_uploads/*
+design/src/temp_uploads/*
 .DS_Store

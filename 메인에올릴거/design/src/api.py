@@ -4,7 +4,7 @@
 엔드포인트:
 - POST /chat/image    : 이미지 업로드 → 유사 디자인 10개 반환 (1단계)
 - POST /chat/select   : 디자인 선택 → 상세비교 + 리포트 반환 (2단계)
-- POST /chat/text     : 텍스트 질문 → LLM + Tools 답변
+- POST /chat/text     : 텍스트 질문 → LLM + Tools 답변 (멀티턴: thread_id 전달로 대화 유지)
 - GET  /health        : 서버 상태 확인
 
 실행: python api.py
@@ -94,6 +94,7 @@ async def chat_image(
             "detailed_comparison": "",
             "final_report": "",
             "general_answer": "",
+            "messages": [],
         }
 
         # 그래프 실행 → show_results_node의 interrupt에서 멈춤
@@ -163,16 +164,30 @@ async def chat_select(
 
 @app.post("/chat/text")
 async def chat_text(
-    text_query: str = Form(...)
+    text_query: str = Form(...),
+    thread_id: str = Form(None),  # 없으면 새 대화, 있으면 기존 대화 이어받기
 ):
     """
-    텍스트 질문 → LLM + Tools(웹검색, DB검색) 답변
+    텍스트 질문 → LLM + Tools(웹검색, DB검색) 답변 (멀티턴 지원)
 
-    interrupt 없이 한 번에 완료.
+    - 첫 요청: thread_id 없이 전송 → 새 thread_id 발급
+    - 이후 요청: 응답받은 thread_id를 함께 전송 → 대화 히스토리 유지
     """
     try:
-        thread_id = str(uuid.uuid4())
+        is_new = thread_id is None
+        thread_id = thread_id or str(uuid.uuid4())
         config = {"configurable": {"thread_id": thread_id}}
+
+        # 기존 대화 히스토리 가져오기
+        messages_history = []
+        if not is_new:
+            try:
+                current = graph.get_state(config)
+                messages_history = current.values.get('messages') or []
+            except Exception:
+                messages_history = []
+
+        turn = len(messages_history) // 2 + 1
 
         initial_state = {
             "input_type": "",
@@ -187,12 +202,15 @@ async def chat_text(
             "detailed_comparison": "",
             "final_report": "",
             "general_answer": "",
+            "messages": messages_history,  # 이전 히스토리 전달
         }
 
         result = graph.invoke(initial_state, config)
 
         return JSONResponse(content={
             "success": True,
+            "thread_id": thread_id,   # 다음 요청에 포함해서 보내면 대화가 이어짐
+            "turn": turn,
             "answer": result.get('general_answer', ''),
         })
 
